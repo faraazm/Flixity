@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1>{{ movie.original_title }}</h1>
-    <img :src="getMovieImage(movie.poster_path)" />
+  <div class="movie-item">
+    <p>{{ movie.original_title }}</p>
+    <b-img :src="getMovieImage(movie.poster_path)" rounded fluid></b-img>
   </div>
 </template>
 
