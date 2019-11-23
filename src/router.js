@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import Home from './views/Home';
+import ViewAll from './views/ViewAll';
 
 export default new Router({
   routes: [
@@ -11,6 +12,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/view-all',
+      name: 'ViewAll',
+      component: ViewAll
     }
   ]
 })
