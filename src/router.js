@@ -16,7 +16,8 @@ export default new Router({
     {
       path: '/view-all',
       name: 'ViewAll',
-      component: ViewAll
+      component: ViewAll,
+      props: true
     }
   ]
 })

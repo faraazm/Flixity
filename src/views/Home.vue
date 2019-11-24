@@ -11,7 +11,7 @@
           :movies="nowPlayingMovies.data"
           :link="nowPlayingMovies.link"
         />
-        <router-link :to="{ name: 'ViewAll', params: { url: this.nowPlayingMovies.url, title: 'Now Playing' } }">
+        <router-link :to="{ name: 'ViewAll', query: { url: this.nowPlayingMovies.url, title: 'Now Playing' } }">
           <b-button class="mt-3 mb-3" variant="danger">View all</b-button>
         </router-link>
         <!-- Top Rated Movies  -->
@@ -20,7 +20,7 @@
           :movies="topRatedMovies.data"
           :link="topRatedMovies.link"
         />
-        <router-link :to="{ name: 'ViewAll', params: { url: this.topRatedMovies.url, title: 'Top Rated' } }">
+        <router-link :to="{ name: 'ViewAll', query: { url: this.topRatedMovies.url, title: 'Top Rated' } }">
           <b-button class="mt-3 mb-3" variant="danger">View all</b-button>
         </router-link>
         <!-- Trending Movies  -->
@@ -29,7 +29,7 @@
           :movies="trendingMovies.data"
           :link="trendingMovies.link"
         />
-        <router-link :to="{ name: 'ViewAll', params: { url: this.trendingMovies.url, title: 'Trending' } }">
+        <router-link :to="{ name: 'ViewAll', query: { url: this.trendingMovies.url, title: 'Trending' } }">
           <b-button class="mt-3 mb-3" variant="danger">View all</b-button>
         </router-link>
       </b-col>
@@ -64,7 +64,7 @@ export default {
       trendingMovies: {
         title: "Trending Movies",
         data: [],
-        url: '/trending/movie'
+        url: '/trending/movie/day'
       },
       newlyReleased: {},
       key: config.key,
