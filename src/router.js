@@ -5,6 +5,7 @@ Vue.use(Router)
 
 import Home from './views/Home';
 import ViewAll from './views/ViewAll';
+import Detail from './views/Detail';
 
 export default new Router({
   routes: [
@@ -18,6 +19,11 @@ export default new Router({
       name: 'ViewAll',
       component: ViewAll,
       props: true
+    },
+    {
+      path: '/detail',
+      name: 'Detail',
+      component: Detail
     }
   ]
 })

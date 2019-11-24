@@ -3,8 +3,10 @@
     <h1>{{ this.title }}</h1>
     <b-row v-if="movies.length">
         <b-col cols="3" v-bind:key="movie.id" v-for="movie in movies">
-          <MovieItem :movie="movie" />
-        </b-col> 
+          <router-link :to="{ name: 'Detail', query: { id: movie.id } }">
+            <MovieItem :movie="movie" />
+          </router-link>
+        </b-col>
     </b-row>
   </div>
 </template>
