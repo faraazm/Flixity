@@ -5,7 +5,8 @@
         <Sidebar />
       </b-col>
       <b-col cols="9">
-        <MovieList :title="title" :movies="movies" />
+        <MovieList :title="this.$route.query.title" :movies="movies" />
+        <b-pagination-nav pills size="md" align="center" class="mt-3 mb-3 pagination-custom" :link-gen="linkGen" :number-of-pages="10" use-router></b-pagination-nav>
       </b-col>
     </b-row>
   </b-container>
@@ -24,35 +25,44 @@ export default {
     return {
       title: "",
       url: "",
+      page: null,
       movies: [],
       key: config.key,
       apiURL: "https://api.themoviedb.org/3"
     };
   },
   methods: {
-    fetchMovies(title, url) {
-      this.title = title;
-      this.url = url;
+    fetchMovies(title, url, page) {
       axios
-        .get(`${this.apiURL}${this.url}?api_key=${this.key}`)
+        .get(`${this.apiURL}${url}?api_key=${this.key}&page=${page}`)
         .then(movies => (this.movies = movies.data.results))
         .catch(err => console.log(err));
+    },
+    linkGen(pageNum){
+      return {
+        name: 'ViewAll',
+        query: { 
+          page: pageNum,
+          url: this.$route.query.url,
+          title: this.$route.query.title
+        }
+      }
     }
   },
   created() {
-    this.title = this.$route.query.title;
-    this.url = this.$route.query.url;
-    axios
-      .get(`${this.apiURL}${this.url}?api_key=${this.key}`)
-      .then(movies => (this.movies = movies.data.results))
-      .catch(err => console.log(err));
+    this.fetchMovies(this.$route.query.title, this.$route.query.url, this.$route.query.page);
   },
   beforeRouteUpdate(to, from, next) {
-    this.fetchMovies(to.query.title, to.query.url);
+    this.fetchMovies(to.query.title, to.query.url, to.query.page);
     next();
   }
 };
 </script>
 
 <style scoped>
+.page-item a {
+  background-color: #000 !important;
+  color: red !important;
+  border: none !important;
+}
 </style>

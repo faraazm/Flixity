@@ -3,7 +3,7 @@
     <h1>{{ this.title }}</h1>
     <b-row v-if="movies.length">
         <b-col cols="3" v-bind:key="movie.id" v-for="movie in movies">
-          <router-link :to="{ name: 'Detail', query: { id: movie.id } }">
+          <router-link class="link" :to="{ name: 'Detail', query: { id: movie.id } }">
             <MovieItem :movie="movie" />
           </router-link>
         </b-col>
@@ -28,5 +28,9 @@ export default {
     width: 75%;
     margin: 0 auto;
     display: block;
+}
+.link {
+  color: #FFF;
+  font-weight: 600;
 }
 </style>
