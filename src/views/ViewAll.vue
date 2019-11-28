@@ -25,16 +25,18 @@ export default {
     return {
       title: "",
       url: "",
-      page: null,
+      page: 1,
       movies: [],
       key: config.key,
       apiURL: "https://api.themoviedb.org/3"
     };
   },
   methods: {
-    fetchMovies(title, url, page) {
+    fetchMovies(title, url, page, searchFor) {
+      if(!page){ page = 1 }
+
       axios
-        .get(`${this.apiURL}${url}?api_key=${this.key}&page=${page}`)
+        .get(`${this.apiURL}${url}?api_key=${this.key}&page=${page}&query=${searchFor}`)
         .then(movies => (this.movies = movies.data.results))
         .catch(err => console.log(err));
     },
@@ -44,16 +46,22 @@ export default {
         query: { 
           page: pageNum,
           url: this.$route.query.url,
-          title: this.$route.query.title
+          title: this.$route.query.title,
+          searchFor: this.$route.query.searchFor
         }
       }
     }
   },
   created() {
-    this.fetchMovies(this.$route.query.title, this.$route.query.url, this.$route.query.page);
+    this.fetchMovies(
+      this.$route.query.title,
+      this.$route.query.url,
+      this.$route.query.page,
+      this.$route.query.searchFor
+    );
   },
   beforeRouteUpdate(to, from, next) {
-    this.fetchMovies(to.query.title, to.query.url, to.query.page);
+    this.fetchMovies(to.query.title, to.query.url, to.query.page, to.query.searchFor);
     next();
   }
 };

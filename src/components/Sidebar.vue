@@ -27,17 +27,14 @@ export default {
     return {
       nowPlayingMovies: {
         title: "Now Playing",
-        data: [],
         url: "/movie/now_playing"
       },
       topRatedMovies: {
         title: "Top Rated",
-        data: [],
         url: "/movie/top_rated"
       },
       trendingMovies: {
         title: "Trending Movies",
-        data: [],
         url: "/trending/movie/day"
       }
     };
