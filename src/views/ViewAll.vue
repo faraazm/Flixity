@@ -1,12 +1,15 @@
 <template>
   <b-container fluid>
     <b-row>
-      <b-col class="p-0" cols="3">
+      <b-col class="p-0" cols="2">
         <Sidebar />
       </b-col>
-      <b-col cols="9">
+      <b-col cols="8">
         <MovieList :title="this.$route.query.title" :movies="movies" />
         <b-pagination-nav pills size="md" align="center" class="mt-3 mb-3 pagination-custom" :link-gen="linkGen" :number-of-pages="10" use-router></b-pagination-nav>
+      </b-col>
+      <b-col class="p-0" cols="2">
+        
       </b-col>
     </b-row>
   </b-container>

@@ -1,20 +1,52 @@
 <template>
   <div class="sidebar">
-    <ul class="sidebar-nav pl-1 pt-5">
+    <ul class="sidebar-nav pl-5 pt-5">
       <li class="nav-item">
-        <router-link :to="{ name: 'ViewAll', query: { url: this.nowPlayingMovies.url, title: 'Now Playing' } }" class="mt-3 mb-3">
+        <router-link
+          :to="{ name: 'ViewAll', query: { url: this.nowPlayingMovies.url, title: 'Now Playing' } }"
+          class="mt-3 mb-3"
+        >
           <h5>Now Playing</h5>
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link :to="{ name: 'ViewAll', query: { url: this.topRatedMovies.url, title: 'Top Rated' } }" class="mt-3 mb-3">
+        <router-link
+          :to="{ name: 'ViewAll', query: { url: this.topRatedMovies.url, title: 'Top Rated' } }"
+          class="mt-3 mb-3"
+        >
           <h5>Top Rated</h5>
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link :to="{ name: 'ViewAll', query: { url: this.trendingMovies.url, title: 'Trending' } }" class="mt-3 mb-3">
+        <router-link
+          :to="{ name: 'ViewAll', query: { url: this.trendingMovies.url, title: 'Trending' } }"
+          class="mt-3 mb-3"
+        >
           <h5>Trending</h5>
         </router-link>
+      </li>
+    </ul>
+    <ul class="sidebar-nav pl-5 pt-5">
+      <li class="nav-item">
+        <h5>Genres</h5>
+      </li>
+      <li class="nav-item">
+        <h5>Action</h5>
+      </li>
+      <li class="nav-item">
+        <h5>Horror</h5>
+      </li>
+      <li class="nav-item">
+        <h5>Comedy</h5>
+      </li>
+      <li class="nav-item">
+        <h5>Adventure</h5>
+      </li>
+      <li class="nav-item">
+        <h5>Drama</h5>
+      </li>
+      <li class="nav-item">
+        <h5>Sci-Fi</h5>
       </li>
     </ul>
   </div>
@@ -44,7 +76,7 @@ export default {
 
 <style scoped>
 .sidebar {
-  background-color: #000;
+  background-color: #050608;
   height: 100%;
 }
 .sidebar-nav {
@@ -56,11 +88,5 @@ export default {
 }
 .nav-item h5 {
   font-weight: 200;
-}
-.sidebar-nav li:hover,
-.sidebar-nav li.router-link-active,
-.sidebar-nav li.router-link-exact-active {
-  background-color: indianred;
-  cursor: pointer;
 }
 </style>

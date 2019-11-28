@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>{{ this.title }}</h1>
+  <div class="mt-4 ml-4 mr-4">
+    <h1 class="mb-5">{{ this.title }}</h1>
     <b-row v-if="movies.length">
         <b-col cols="3" v-bind:key="movie.id" v-for="movie in movies">
           <router-link class="link" :to="{ name: 'Detail', query: { id: movie.id } }">
@@ -24,13 +24,12 @@ export default {
 </script>
 
 <style scoped>
-.movies-list {
-    width: 75%;
-    margin: 0 auto;
-    display: block;
-}
 .link {
   color: #FFF;
   font-weight: 600;
+}
+.link:hover {
+  text-decoration: none;
+  color: gray;
 }
 </style>

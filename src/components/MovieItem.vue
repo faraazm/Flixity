@@ -1,7 +1,8 @@
 <template>
   <div class="movie-item">
-    <p>{{ movie.original_title }}</p>
-    <b-img :src="getMovieImage(movie.poster_path)" rounded fluid></b-img>
+    <b-img :src="getMovieImage(movie.poster_path)" class="movie-image" rounded fluid></b-img>
+    <p class="lead mb-0">{{ movie.original_title }}</p>
+    <star-icon class="star" />{{ movie.vote_average }}
   </div>
 </template>
 
@@ -23,4 +24,11 @@ export default {
 </script>
 
 <style scoped>
+.star {
+  color: orange;
+}
+.movie-image {
+  width: 80% !important;
+  box-shadow: 0px 0px 15px black;
+}
 </style>
